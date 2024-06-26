@@ -8,5 +8,21 @@
 <body>
     <h1>確認付款</h1>
     <nav>
-        <a href="{{ url_for('home') }}">首頁</a>
-        <a href="{{ url_for('products') }}">產品</a
+        <a href="home.html">首頁</a>
+        <a href="products.html">產品</a>
+        <a href="orders.html">訂單</a>
+        <a href="contact.html">聯絡我們</a>
+        <a href="privacy.html">隱私權聲明</a>
+        <a href="login.html">登入</a>
+    </nav>
+    <form method="POST">
+        <label for="card_number">信用卡號碼</label>
+        <input type="text" id="card_number" name="card_number" required>
+        <label for="expiry_date">有效期限</label>
+        <input type="text" id="expiry_date" name="expiry_date" required>
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" required>
+        <button type="submit">確認付款</button>
+    </form>
+</body>
+</html>
