@@ -4,16 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <h1>歡迎來到我們的網站</h1>
     <nav>
-        <a href="home.html">首頁</a>
-        <a href="products.html">產品</a>
-        <a href="orders.html">訂單</a>
-        <a href="contact.html">聯絡我們</a>
-        <a href="privacy.html">隱私權聲明</a>
-        <a href="login.html">登入</a>
+        <a href="{{ url_for('home') }}">首頁</a>
+        <a href="{{ url_for('product_list') }}">產品</a>
+        <a href="{{ url_for('order') }}">訂單</a>
+        <a href="{{ url_for('contact') }}">聯絡我們</a>
+        <a href="{{ url_for('privacy') }}">隱私權聲明</a>
+        <a href="{{ url_for('login') }}">登入</a>
     </nav>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
