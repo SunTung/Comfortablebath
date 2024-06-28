@@ -4,23 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #4682b4;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #5a9bd3;
+        }
+        main {
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #ffffff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        li p {
+            color: #ff0000;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-    <h1>產品列表</h1>
+    <header>
+        <h1>產品列表</h1>
+    </header>
     <nav>
-        <a href="home.html">首頁</a>
-        <a href="products.html">產品</a>
-        <a href="orders.html">訂單</a>
-        <a href="contact.html">聯絡我們</a>
-        <a href="privacy.html">隱私權聲明</a>
-        <a href="login.html">登入</a>
+        <a href="{{ url_for('home') }}">首頁</a>
+        <a href="{{ url_for('product_list') }}">產品</a>
+        <a href="{{ url_for('order') }}">訂單</a>
+        <a href="{{ url_for('contact') }}">聯絡我們</a>
+        <a href="{{ url_for('privacy') }}">隱私權聲明</a>
+        <a href="{{ url_for('login') }}">登入</a>
     </nav>
-    <ul>
-        {% for product in products %}
-            <li>{{ product.name }} - ${{ product.price }}
-                <p>此為天然顏礦製成 不可大量使用 若不小心誤食 請多喝開水 若不是請儘速就醫</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <main>
+        <ul>
+            {% for product in products %}
+                <li>
+                    {{ product.name }} - ${{ product.price }}
+                    <p>此為天然顏礦製成 不可大量使用 若不小心誤食 請多喝開水 若不是請儘速就醫</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
 </body>
 </html>
