@@ -184,7 +184,7 @@ def order_confirmation():
 
 @app.route('/mark_received', methods=['POST'])
 def mark_received():
-    if 'username' in session and 'order_id' in session:
+    if 'username' in session and 'order_id' in session):
         order_id = session['order_id']
         order = orders.get(order_id)
         if order:
@@ -195,7 +195,7 @@ def mark_received():
 
 @app.route('/refund', methods=['GET', 'POST'])
 def refund():
-    if 'username' in session and 'order_id' in session:
+    if 'username' in session and 'order_id' in session):
         order_id = session['order_id']
         order = orders.get(order_id)
         if request.method == 'POST' and order:
@@ -211,7 +211,7 @@ def refund():
 
 @app.route('/return', methods=['GET', 'POST'])
 def return_order():
-    if 'username' in session and 'order_id' in session:
+    if 'username' in session and 'order_id' in session):
         order_id = session['order_id']
         order = orders.get(order_id)
         if request.method == 'POST' and order:
