@@ -4,34 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #4682b4;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #5a9bd3;
+        }
+        main {
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .messages {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #f5c6cb;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h1>填寫配送資訊</h1>
+    <header>
+        <h1>填寫配送資訊</h1>
+    </header>
     <nav>
-        <a href="home.html">首頁</a>
-        <a href="products.html">產品</a>
-        <a href="orders.html">訂單</a>
-        <a href="contact.html">聯絡我們</a>
-        <a href="privacy.html">隱私權聲明</a>
-        <a href="login.html">登入</a>
-    </nav></nav>
-    <form method="POST">
-        <label for="address">地址</label>
-        <input type="text" id="address" name="address" required>
-        <label for="phone">手機號碼</label>
-        <input type="text" id="phone" name="phone" required>
-        <label for="email">電子郵件</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">提交配送資訊</button>
-    </form>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+        <a href="{{ url_for('home') }}">首頁</a>
+        <a href="{{ url_for('product_list') }}">產品</a>
+        <a href="{{ url_for('order') }}">訂單</a>
+        <a href="{{ url_for('contact') }}">聯絡我們</a>
+        <a href="{{ url_for('privacy') }}">隱私權聲明</a>
+        <a href="{{ url_for('login') }}">登入</a>
+    </nav>
+    <main>
+        <form method="POST">
+            <label for="address">地址</label>
+            <input type="text" id="address" name="address" required>
+            <label for="phone">手機號碼</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="email">電子郵件</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">提交配送資訊</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="messages">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </main>
 </body>
 </html>
