@@ -19,7 +19,14 @@ mail = Mail(app)
 
 verification_codes = {}
 orders = {}  # 用於存儲用戶訂單
-TRANSACTION_FEE_PERCENTAGE = 0.07  # 假設手續費為5%
+TRANSACTION_FEE_PERCENTAGE = 0.07  # 假設手續費為7%
+
+# 假設產品數據
+products = [
+    {'id': 1, 'name': '產品1', 'price': 100},
+    {'id': 2, 'name': '產品2', 'price': 200},
+    # 添加更多產品數據
+]
 
 def generate_verification_code():
     return str(random.randint(100000, 999999))
@@ -58,11 +65,11 @@ def home():
     return render_template('home.html')
 
 @app.route('/products')
-def products():
+def product_list():
     return render_template('products.html', products=products)
 
 @app.route('/orders', methods=['GET', 'POST'])
-def orders():
+def order():
     if 'username' in session:
         if request.method == 'POST':
             cart = request.form.getlist('product')
@@ -238,4 +245,3 @@ def privacy():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
