@@ -1,0 +1,13 @@
+capture:
+  suspected_default: true
+risk:
+  high_threshold: 80
+  medium_threshold: 40
+  increase_on_suspected: 10
+  decay_idle: 5
+distortion:
+  low_pixel_size: 16
+  medium_pixel_size: 10
+  high_pixel_size: 6
+  medium_mask_ratio: 0.20
+  high_mask_ratio: 0.40
