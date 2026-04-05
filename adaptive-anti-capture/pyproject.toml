@@ -1,0 +1,16 @@
+[project]
+name = "adaptive-anti-capture"
+version = "0.1.0"
+description = "Prototype display-layer information protection framework"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "mss>=9.0.1",
+  "numpy>=1.24.0",
+  "opencv-python>=4.8.0",
+  "PyYAML>=6.0.1"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
